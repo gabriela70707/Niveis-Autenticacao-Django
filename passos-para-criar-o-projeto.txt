@@ -1,0 +1,39 @@
+criar e ativar a env
+
+instalar as bibliotecas:
+- pip install djangorestframework-simplejwt
+
+startar o projeto:
+- django-admin startproject mercado
+
+startar app:
+django-admin startapp app
+
+- Criar o models
+
+- No settings do projeto:
+no instaled apps:
+    'app',
+    'rest_framework', 
+    'rest_framework_simplejwt',
+
+
+- importar: from datetime import timedelta
+- adicionar essas configurações:
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':(
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
+SIMPLE_JWT = {
+    'ACESS_TOKEN_LIFETIME': timedelta(hours=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1)
+}
+
+AUTH_USER_MODEL = 'app'
+
+
+- fazer o serializer
+- fazer  o permission
